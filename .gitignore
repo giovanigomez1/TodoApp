@@ -4,12 +4,20 @@
 /node_modules
 /.pnp
 .pnp.js
+/style-guide.md
+/README-template.md
+
+
+
+
 
 # testing
 /coverage
 
 # production
 /build
+/design
+
 
 # misc
 .DS_Store
