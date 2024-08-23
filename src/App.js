@@ -3,11 +3,9 @@ import Todo from "./components/Todo"
 import Header from "./components/Header"
 import AddTask from "./components/AddTask"
 import DisplayList from "./components/DisplayList"
-import FooterList from "./components/FooterList"
 
 
-
-import { useReducer } from "react"
+import { useEffect, useReducer } from "react"
 
 
 const initialState = {
@@ -25,8 +23,6 @@ function reducer(state, action) {
         theme: !state.theme
       }
     case 'addTask':
-      console.log(action.payload)
-
       return {
         ...state, 
         todoList: [action.payload, ...state.todoList]
@@ -54,16 +50,40 @@ function reducer(state, action) {
         todoList: state.todoList.filter((ele) => ele.completed === false)
       }
 
+    case 'setInitialState':
+      console.log(action.payload)
+      return {
+        ...state,
+        todoList: [...action.payload.data],
+        theme: action.payload.theme 
+      }
+
     default: 
     throw new Error('Action unknown')
   }
 }
 
 
-
-
 function App() {
   const [{todoList, theme}, dispatch] = useReducer(reducer, initialState)
+  useEffect(() => {
+    if(localStorage.getItem('list')) {
+      dispatch({
+        type: 'setInitialState', 
+        payload: {
+          data: JSON.parse(localStorage.getItem('list')), 
+          theme: JSON.parse(localStorage.getItem('theme'))
+        }
+      })
+    } else {
+      return
+    }
+  }, [])
+  
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(todoList))
+    localStorage.setItem('theme', JSON.stringify(theme))
+  }, [todoList, theme])
 
   return (
     <>
