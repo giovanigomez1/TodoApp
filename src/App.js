@@ -3,6 +3,7 @@ import Todo from "./components/Todo"
 import Header from "./components/Header"
 import AddTask from "./components/AddTask"
 import DisplayList from "./components/DisplayList"
+import FooterList from "./components/FooterList"
 
 
 import { useEffect, useReducer } from "react"
@@ -93,8 +94,10 @@ function App() {
           <AddTask dispatch={dispatch} theme={theme}/>
           <DisplayList todoList={todoList} dispatch={dispatch} theme={theme}/>
           
+          <FooterList />
         </Todo>
       </Todo_container>
+      
     </>
   )
 }

@@ -2,19 +2,13 @@ import Task from "./Task"
 import { useState } from "react"
 
 
-
-
-
-
-
 function DisplayList({todoList, dispatch, theme}) {  
 
   const listStyle = {
     backgroundColor:  `${theme ? 'hsl(0, 0%, 98%)' : 'hsl(235, 24%, 19%)'}`,
     color:  `${theme ? 'hsl(235, 24%, 19%)' : 'hsl(0, 0%, 98%)'}`
   }
-  
-  
+    
   const itemsLeft = todoList.reduce((acc, ele) => {
     return acc + (!ele.completed)
   }, 0)
@@ -66,6 +60,11 @@ function DisplayList({todoList, dispatch, theme}) {
         <div className="footer__items-clear">
           <button onClick={() => dispatch({type: 'clearCompleted'})}>Clear Completed</button>
         </div>
+      </div>
+      <div className="footer__items-sort--mobile" style={listStyle}>
+        <button className={`footer__items-sort_all ${display === 'all' ? 'selected' : ''}`} onClick={() => setDisplay('all')}>All</button>
+        <button className={`footer__items-sort_active ${display === 'active' ? 'selected' : ''}`} onClick={() => setDisplay('active')}>Active</button>
+        <button className={`footer__items-sort_completed ${display === 'completed' ? 'selected' : ''}`} onClick={() => setDisplay('completed')}>Completed</button>
       </div>
     </>
   )
