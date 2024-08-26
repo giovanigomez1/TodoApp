@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-// $bp-largest: 140em; // 2240px
 $bp-largest: 84.3em; // 1350px
 $bp-large:62.5em; // 1000px
 $bp-medium: 50em; // 800px
@@ -23,7 +20,6 @@ html {
 :root {
   --bright-blue: hsl(220, 98%, 61%);
   // --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
-
   // Light Theme
   --very-light-gray: hsl(0, 0%, 98%);
   --very-light-grayish-blue: hsl(236, 33%, 92%);
@@ -43,10 +39,8 @@ html {
 
 
 body {
-  font-family: "Josefin Sans", sans-serif;
-  
+  font-family: "Josefin Sans", sans-serif; 
 }
-
 
 .container {
   width: 100vw;
@@ -110,8 +104,6 @@ body {
       height: 2rem;
       border-radius: 50%;
       position: relative;
-      
-
     }
   }
   .todolist {
@@ -120,7 +112,6 @@ body {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 .1rem 1.5rem rgba(0, 0, 0, 0.153);
-    
     &__ele {
       border-bottom: 1px solid var(--light-grayish-blue2);
       &--item_label {
@@ -142,7 +133,6 @@ body {
             position: relative;
             border-radius: 50%;
             border: 1px solid var(--light-grayish-blue1);
-            // background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
           }
           & svg {
             position: absolute;
@@ -240,12 +230,9 @@ body {
     &__items-clear {
       justify-self: end;
       font-size: 1.6rem;
-    }
-
-    
+    }    
   }
 }
-
 
 .selected {
   color: var(--bright-blue) !important;
@@ -254,7 +241,6 @@ body {
 .hidden {
   display: none !important;
 }
-
 
 .attribution {
   display: flex;

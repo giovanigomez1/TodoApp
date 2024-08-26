@@ -3,12 +3,10 @@ import { useState } from "react"
 
 
 function DisplayList({todoList, dispatch, theme}) {  
-
   const listStyle = {
     backgroundColor:  `${theme ? 'hsl(0, 0%, 98%)' : 'hsl(235, 24%, 19%)'}`,
     color:  `${theme ? 'hsl(235, 24%, 19%)' : 'hsl(0, 0%, 98%)'}`
   }
-    
   const itemsLeft = todoList.reduce((acc, ele) => {
     return acc + (!ele.completed)
   }, 0)
@@ -39,15 +37,11 @@ function DisplayList({todoList, dispatch, theme}) {
     })
 
 
- 
-
-
   return (
     <>
       <ul className="todolist" style={listStyle}>
         {display === 'all' ? renderList : display === 'active' ? active : completed}
       </ul>
-    
       <div className="footer" style={listStyle}>
         <div className="footer__items-left">
           <p>{itemsLeft} items left</p>
